@@ -1,0 +1,11 @@
+<% if flash[:notice] %>
+    <%= flash[:notice] %>
+<% end %>
+
+<p>
+  <%= form_for @task_list, url: "create_list" do |f| %>
+      <%= f.label "New Task Name" %>
+      <%= f.text_field :name %>
+      <%= f.submit 'Create New Task List' %>
+  <% end %>
+</p>

@@ -1,9 +1,13 @@
-<h1>My Lists</h1>
+<h1>My Lists <a href="create_list" style="font-size: 15px">+ Add Task List</a></h1>
+<% if flash[:notice] %>
+
+    <p style="background-color: lawngreen; height: 20px; vertical-align: middle"><%= flash[:notice] %></p>
+<%  end %>
 
 <% @task_lists.each do |task_list| %>
-
   <section class="task-list">
-    <h1><%= task_list.name %></h1>
+    <div>
+    <h1 style="display: inline-block; width: 500px"><%= task_list.name %></h1><a href="edit">Edit</a>
+    </div>
   </section>
-
 <% end %>

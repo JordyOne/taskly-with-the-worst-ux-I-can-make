@@ -1,0 +1,7 @@
+<p>
+  <%= form_for @task_list, url: "edit" do |f| %>
+      <%= f.label "Edit Task Name" %>
+      <%= f.text_field :name %>
+      <%= f.submit 'Update Task Name' %>
+  <% end %>
+</p>
