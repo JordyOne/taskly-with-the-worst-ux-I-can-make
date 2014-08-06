@@ -1,5 +1,10 @@
 class TaskListsController < ApplicationController
 
+  def new
+    @task_list = TaskList.new
+    render "create_list"
+  end
+
   def index
     @task_lists = TaskList.order(:name)
   end
@@ -9,7 +14,7 @@ class TaskListsController < ApplicationController
     render "create_list"
   end
 
-  def create_list
+  def create
     @task_list = TaskList.create(name: params[:task_list][:name])
     if @task_list.valid?
       flash[:notice] = "Task List was created successfully!"
@@ -21,7 +26,18 @@ class TaskListsController < ApplicationController
   end
 
   def edit
-    TaskList.update(params[name: params
+    @task_list = TaskList.find(params[:id])
+  end
+
+  def update
+    @task_list = TaskList.find(params[:id]).update(:name => params[:task_list][:name])
+    flash[:notice] = "Task List was updated successfully!"
+    redirect_to "/"
+  end
+
+  def add_task_page
+    @task = Task.new
+    @task_list_id = params[:id]
   end
 end
 

@@ -1,4 +1,4 @@
-<h1>My Lists <a href="create_list" style="font-size: 15px">+ Add Task List</a></h1>
+<h1>My Lists <a href="<%= new_task_list_path %>" style="font-size: 15px">+ Add Task List</a></h1>
 <% if flash[:notice] %>
 
     <p style="background-color: lawngreen; height: 20px; vertical-align: middle"><%= flash[:notice] %></p>
@@ -7,7 +7,7 @@
 <% @task_lists.each do |task_list| %>
   <section class="task-list">
     <div>
-    <h1 style="display: inline-block; width: 500px"><%= task_list.name %></h1><a href="edit">Edit</a>
+    <h1 style="display: inline-block; width: 500px"><%= task_list.name %></h1><a href="edit/<%= task_list.id %>">Edit</a><a style="padding-left: 10px" href="create_task/<%= task_list.id %>">Add Task</a>
     </div>
   </section>
 <% end %>

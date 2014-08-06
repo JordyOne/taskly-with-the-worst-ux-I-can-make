@@ -1,0 +1,8 @@
+<p>
+  <%= form_for @task, url: "#{@task.id}", html: {method: "put"} do |f| %>
+      <%= f.label "Add a task" %>
+      <%= f.text_field :name %>
+      <%= f.hidden_field :task_list_id, :value => @task_list_id %>
+      <%= f.submit 'Create Task' %>
+  <% end %>
+</p>

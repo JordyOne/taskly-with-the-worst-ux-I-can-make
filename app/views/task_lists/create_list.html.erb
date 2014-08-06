@@ -3,7 +3,7 @@
 <% end %>
 
 <p>
-  <%= form_for @task_list, url: "create_list" do |f| %>
+  <%= form_for @task_list, url: task_lists_path do |f| %>
       <%= f.label "New Task Name" %>
       <%= f.text_field :name %>
       <%= f.submit 'Create New Task List' %>
